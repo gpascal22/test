@@ -5,3 +5,13 @@ services:
 scripts:
     - docker build -t mannydesigns/node .
     - docker images mannydesigns/node 
+
+before_deploy:
+    -docker login -u <gpascal22> -p <Vasana@Mamaka@22>
+
+deploy:
+    provider: script
+    script: docker push mannydesigns/node
+    on:
+        branch: master
+        
